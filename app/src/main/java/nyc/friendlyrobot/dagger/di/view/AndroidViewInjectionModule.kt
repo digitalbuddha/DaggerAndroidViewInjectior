@@ -1,4 +1,4 @@
-package nyc.friendlyrobot.dagger.di
+package nyc.friendlyrobot.dagger.di.view
 
 import android.view.View
 import dagger.Module

@@ -10,6 +10,12 @@ class AndroidViewInjection {
             viewInjector.inject(view)
         }
 
+        fun injectShared(view: View) {
+            val hasViewInjector = findHasViewInjector(view)
+            val viewInjector = hasViewInjector.viewInjectorBuilder()
+            viewInjector.create(view).inject(view)
+        }
+
         private fun findHasViewInjector(view: View): HasViewInjector {
             val context = view.context
 

@@ -15,7 +15,7 @@ class MainView @JvmOverloads constructor(
 
     override fun onFinishInflate() {
         super.onFinishInflate()
-        AndroidViewInjection.inject(this)
+        AndroidViewInjection.injectShared(this)
         assert(myContext != null)
     }
 }

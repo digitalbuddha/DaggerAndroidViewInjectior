@@ -5,7 +5,7 @@ import android.util.AttributeSet
 import android.widget.LinearLayout
 import javax.inject.Inject
 
-class NestedView @JvmOverloads constructor(
+class NestedDaggerView @JvmOverloads constructor(
         context: Context,
         attrs: AttributeSet? = null,
         defStyleAttr: Int = 0
@@ -14,7 +14,7 @@ class NestedView @JvmOverloads constructor(
 
     override fun onFinishInflate() {
         super.onFinishInflate()
-        AndroidViewInjection.injectShared(this)
-        assert(name != null)
+        AndroidViewInjection.inject(this)
+        assert(name.isNotEmpty())
     }
 }

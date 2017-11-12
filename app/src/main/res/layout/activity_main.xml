@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <nyc.friendlyrobot.dagger.ui.MainView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="nyc.friendlyrobot.dagger.ui.MainActivity">
+
     <nyc.friendlyrobot.dagger.ui.NestedView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
     </nyc.friendlyrobot.dagger.ui.NestedView>
+
+    <nyc.friendlyrobot.dagger.ui.NestedDaggerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </nyc.friendlyrobot.dagger.ui.NestedDaggerView>
 
 </nyc.friendlyrobot.dagger.ui.MainView>

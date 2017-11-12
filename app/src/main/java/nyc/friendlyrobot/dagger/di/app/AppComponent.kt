@@ -1,9 +1,11 @@
-package nyc.friendlyrobot.dagger.di
+package nyc.friendlyrobot.dagger.di.app
 
 import dagger.Component
 import dagger.android.AndroidInjector
 import dagger.android.support.AndroidSupportInjectionModule
 import nyc.friendlyrobot.dagger.MyDaggerApplication
+import nyc.friendlyrobot.dagger.di.activity.ActivityBindingModule
+import nyc.friendlyrobot.dagger.di.view.AndroidViewInjectionModule
 import javax.inject.Singleton
 
 /**

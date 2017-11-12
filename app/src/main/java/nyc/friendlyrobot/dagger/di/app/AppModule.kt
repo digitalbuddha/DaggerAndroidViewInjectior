@@ -1,4 +1,4 @@
-package nyc.friendlyrobot.dagger.di
+package nyc.friendlyrobot.dagger.di.app
 
 import android.app.Application
 import android.content.Context
