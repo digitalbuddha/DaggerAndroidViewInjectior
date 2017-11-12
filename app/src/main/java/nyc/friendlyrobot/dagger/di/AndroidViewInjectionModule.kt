@@ -7,6 +7,7 @@ import dagger.multibindings.Multibinds
 
 @Module
 abstract class AndroidViewInjectionModule {
+
     @Multibinds
-    abstract fun viewInjectorFactories(): @JvmSuppressWildcards Map<Class<out View>, @JvmSuppressWildcards AndroidInjector.Factory<out View>>
+    abstract fun viewInjectorFactories(): Map<Class<out View>, AndroidInjector.Factory<out View>>
 }

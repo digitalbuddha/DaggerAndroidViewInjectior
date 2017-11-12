@@ -6,5 +6,5 @@ import nyc.friendlyrobot.dagger.di.DaggerAppComponent
 
 class MyDaggerApplication : DaggerApplication() {
     override fun applicationInjector(): @JvmSuppressWildcards AndroidInjector<out DaggerApplication> =
-       DaggerAppComponent.builder().application(this).build()
+             DaggerAppComponent.builder().create(this)
 }

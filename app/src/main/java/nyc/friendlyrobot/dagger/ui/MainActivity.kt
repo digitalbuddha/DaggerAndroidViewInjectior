@@ -10,7 +10,7 @@ import nyc.friendlyrobot.dagger.R
 import javax.inject.Inject
 
 
-internal interface HasViewInjector {
+interface HasViewInjector {
     fun viewInjector(): AndroidInjector<View>
 }
 

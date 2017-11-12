@@ -18,7 +18,7 @@ abstract class MainViewInjectorModule {
             : AndroidInjector.Factory<out View>
 
     @Subcomponent
-    interface MainViewSubcomponent : @JvmSuppressWildcards AndroidInjector<MainView> {
+    interface MainViewSubcomponent : AndroidInjector<MainView> {
         @Subcomponent.Builder
         abstract class Builder : AndroidInjector.Builder<MainView>()
     }

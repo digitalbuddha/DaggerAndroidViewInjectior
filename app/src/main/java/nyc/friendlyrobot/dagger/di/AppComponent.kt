@@ -6,6 +6,7 @@ import dagger.Component
 import dagger.android.AndroidInjector
 import dagger.android.DaggerApplication
 import dagger.android.support.AndroidSupportInjectionModule
+import nyc.friendlyrobot.dagger.MyDaggerApplication
 import javax.inject.Singleton
 
 /**
@@ -26,13 +27,9 @@ import javax.inject.Singleton
 (ActivityBindingModule::class),
 (AndroidSupportInjectionModule::class),
 (AndroidViewInjectionModule::class)])
-interface AppComponent : AndroidInjector<@JvmSuppressWildcards DaggerApplication> {
+interface AppComponent : AndroidInjector<MyDaggerApplication> {
+
     @Component.Builder
-    interface Builder {
-
-        @BindsInstance
-        fun application(application: Application): Builder
-
-        fun build(): AppComponent
-    }
+    abstract class Builder : AndroidInjector.Builder<MyDaggerApplication>()
 }
+
