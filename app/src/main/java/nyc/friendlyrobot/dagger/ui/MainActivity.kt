@@ -7,6 +7,7 @@ import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.support.DaggerAppCompatActivity
 import nyc.friendlyrobot.dagger.R
+import nyc.friendlyrobot.dagger.di.MainViewInjectorModule
 import javax.inject.Inject
 
 
@@ -15,7 +16,7 @@ interface HasViewInjector {
 }
 
 class MainActivity : DaggerAppCompatActivity(), HasViewInjector {
-    @Inject lateinit var viewInjector: DispatchingAndroidInjector<View>
+   @Inject lateinit var viewInjector: MainViewInjectorModule.MainViewSubcomponent.Builder
 
     @Inject lateinit var context: Context
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,5 +25,5 @@ class MainActivity : DaggerAppCompatActivity(), HasViewInjector {
         assert(context != null)
     }
 
-    override fun viewInjector(): AndroidInjector<View> = viewInjector
+    override fun viewInjector(): AndroidInjector<View> = viewInjector.build()
 }
