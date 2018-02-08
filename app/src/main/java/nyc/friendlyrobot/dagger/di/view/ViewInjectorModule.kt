@@ -16,13 +16,21 @@ import nyc.friendlyrobot.dagger.ui.NestedDaggerView
 @Module(subcomponents = arrayOf(ViewInjectorModule.ViewSubcomponent::class,ViewInjectorModule.NestedViewInjectonViewComponent::class))
 abstract class ViewInjectorModule {
 
-
+     //creates a new subcomponent for each view
     @Binds
     @IntoMap
     @ViewKey(NestedDaggerView::class)
     internal abstract fun bindAndroidInjectorFactory(builder: NestedViewInjectonViewComponent.Builder)
             : AndroidInjector.Factory<out View>
 
+    @Subcomponent(modules = arrayOf(NestedModule::class))
+    @ViewScoped
+    interface NestedViewInjectonViewComponent : AndroidInjector<NestedDaggerView> {
+        @Subcomponent.Builder
+        abstract class Builder : AndroidInjector.Builder<NestedDaggerView>()
+    }
+    
+    //each view below will share same subcomponent 
     @ViewScoped
     @Subcomponent(modules =
     [(BundleModule::class)])
@@ -41,11 +49,5 @@ abstract class ViewInjectorModule {
         abstract fun inject(red: MainView)
         abstract fun inject(blue: NestedView)
     }
-
-    @Subcomponent(modules = arrayOf(NestedModule::class))
-    @ViewScoped
-    interface NestedViewInjectonViewComponent : AndroidInjector<NestedDaggerView> {
-        @Subcomponent.Builder
-        abstract class Builder : AndroidInjector.Builder<NestedDaggerView>()
-    }
-}
+    
+   } 
